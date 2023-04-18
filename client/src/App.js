@@ -1,30 +1,24 @@
-import React, {useAsync, useState, useEffect, useRef} from "react";
-import SimpleGet from "./components/SimpleGet";
-import SimplePost from "./components/SimplePost";
-import './App.css';
+import React from "react";
+import {BrowserRouter, Route, Routes} from "react-router-dom"
+import Header from "./components/Header";
+import Home from "./components/Home";
+import BlogPosts from "./components/BlogPosts";
+import SignUpForm from "./components/SignUpForm";
+import './styles/global.css';
 
 function App() {
-  
-  const [data, setData] = useState(null);
-  const areaName = useRef();
-  const [showDemo1, setShowDemo1] = useState(false);
-  const [showDemo2, setShowDemo2] = useState(false);
-  
-  const handleClick1 = () => {
-    setShowDemo1(true);
-  }
-  const handleClick2 = () => {
-    setShowDemo2(true);
-  }
 
   return (
     <div id="main-div">
-      <h1>{!data ? "Loading..." : data}</h1>
-      <button onClick={handleClick1}>Only retrieve</button>
-      {showDemo1 && <SimpleGet url="/simpleGet"/>}
-      <button onClick={handleClick2}>Send an retrieve</button>
-      {showDemo2 && <SimplePost url="/simplePost"/>}
-      <textarea ref={areaName} />
+      <Header />
+      <BrowserRouter>
+        <Routes>
+          <Route exact path="/" element={<Home />}/>
+          <Route path="/SignUp" element={<SignUpForm />}/>
+          <Route path="/*" element={<BlogPosts />}/>
+          {/* <Route path="/SignUp element={<SignUpForm />" */}
+        </Routes>
+      </BrowserRouter>
     </div>    
   );
 }

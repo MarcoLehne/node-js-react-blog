@@ -5,12 +5,13 @@ const options = {
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ message: 'Please return this once you are done' })
+    body: JSON.stringify({ message: 'Placeholder text' })
   };
 
-const SimplePost = ({url}) => {
+const SimplePost = ({url, text}) => {
 
     const state = useAsync(async () => {
+      options.body = JSON.stringify({message: text});
       const response = await fetch(url,options);
       const result = await response.json();
       return result
@@ -25,7 +26,7 @@ const SimplePost = ({url}) => {
       <div>
       {state.loading 
         ? <h1>loading...</h1>
-        : <h1> {JSON.stringify(state.value)}</h1>}
+        : <h1> {JSON.stringify(state.value.message)}</h1>}
       </div>
     );
 }
