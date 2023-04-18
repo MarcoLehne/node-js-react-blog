@@ -1,0 +1,28 @@
+@import '../../styles/variables.css';
+
+
+form {
+    /* border: 5px solid blue; */
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    margin-top:10%;
+}
+
+label,input[type="submit"] {
+    font-weight: bold;
+    font-size: var(--textbox-title-size);
+    margin-top:10px;
+}
+
+#name,#password, #confirm-password {
+    padding:3px;
+}
+
+h1 {
+    font-size: var(--textbox-title-size);
+}
+
+textarea {
+    resize: none;
+}

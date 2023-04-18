@@ -1,9 +1,12 @@
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3001;
+const bodyParser = require('body-parser');
+
 
 const fs = require('fs');
-const {addPost} = require('./services/user')
+const {addPost} = require('./services/addPost');
+const {addUser} = require('./services/addUser');
 
 
 app.use(express.json());
@@ -35,7 +38,12 @@ app.post("/internal/user/addPost", async (req,res) => {
     res.json({status: "success"});
 })
 
-// this will later serve the transpiled react app to
+app.post("/internal/user/addUser",bodyParser.urlencoded({ extended: true }),  async (req,res) => {
+    await addUser(req.body);
+    res.json({status: "success"});
+})
+
+// this will later serve the transpiled react app to any remaining url
 // browser
 // app.get("*", (req, res) => {
     
