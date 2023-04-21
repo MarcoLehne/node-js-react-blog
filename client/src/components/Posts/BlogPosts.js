@@ -13,7 +13,7 @@ const options = {
     body: JSON.stringify({ message: 'palceholder' })
   };
 
-function BlogPosts(){
+function BlogPosts(props){
 
     const [posts, setPosts] = useState([]);
     const [showPosts, setShowPosts] = useState(true);
@@ -51,10 +51,12 @@ function BlogPosts(){
     return (
         <div id="blog-posts-container">
             <TitleCard />
-            {showPosts
-                ? <CreatePost onCreatePost={createPost}/>
-                : <PublishPost onPublishPost={publishPost}/>
-            }            
+            {props.isLoggedIn
+                ?showPosts
+                    ? <CreatePost onCreatePost={createPost}/>
+                    : <PublishPost onPublishPost={publishPost}/>
+                : null
+            }        
             <div id="blog-posts">
                 {showPosts
                     ? posts.map((post,i) => {

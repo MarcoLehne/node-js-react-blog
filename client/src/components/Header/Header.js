@@ -1,30 +1,23 @@
 import React from "react";
+import LoginBtn from "./LoginBtn";
 import SignUpBtn from "./SignUpBtn";
-import SignInBtn from "./SignInBtn";
+import LogoutBtn from "./LogoutBtn";
 import HomeBtn from "./HomeBtn";
+import { useSelector } from "react-redux";
 
 function Header() {
 
-    // this needs to have a sign in/sign up to sign out and home button
-    // some routing needs to happen here
-
+    const isLoggedIn = useSelector(state => state.isLoggedIn);
+    
     return (
         <div id="header-div">
-
-
-            {/* the buttons here can have condition for if current page is link xyz then hide */}
-
-            <SignUpBtn />
-            <SignInBtn />
+            {isLoggedIn
+                ? <LogoutBtn />
+                : <LoginBtn />}
+            {isLoggedIn
+                ? null 
+                : <SignUpBtn />}
             <HomeBtn />
-            {/* 
-            SignedIn
-            ?   SignOut
-            :   SignInButton
-                SignOutButton
-            HomeButton        
-            */}
-
         </div>
     )
 }
