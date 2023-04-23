@@ -1,12 +1,11 @@
-import React, {useState} from "react";
-import { useAsync } from "react-use";
+import React from "react";
 import {BrowserRouter, Route, Routes} from "react-router-dom"
 import Header from "./components/Header/Header";
 import Home from "./components/Home";
 import BlogPosts from "./components/Posts/BlogPosts";
 import SignUpForm from "./components/Forms/SignUpForm";
 import LoginForm from "./components/Forms/LoginForm";
-import { verifyToken } from "./helpers/authHelpers";
+// import { verifyToken } from "./helpers/authHelpers";
 import './styles/global.css';
 
 function App() {

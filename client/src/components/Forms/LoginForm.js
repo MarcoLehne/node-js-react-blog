@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setIsLoggedIn } from "../../reducers/slicers/isLoggedInSlice";
 import { setUserName } from "../../reducers/slicers/userName";
 import "./LoginForm.css";

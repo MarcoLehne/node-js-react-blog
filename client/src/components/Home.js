@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import { useAsync } from "react-use";
 import { useSelector } from "react-redux";
 import "./Home.css";

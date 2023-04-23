@@ -21,9 +21,7 @@ function BlogPosts(props){
     const [showPosts, setShowPosts] = useState(true);
     const writtenPostRef = useRef();
 
-    
     const isLoggedIn = useSelector(state => state.isLoggedIn).value;
-    const userName = useSelector(state => state.userName).value;
 
     useAsync(async () => {
         const userName = window.location.href.split("/").slice(-1)[0];
