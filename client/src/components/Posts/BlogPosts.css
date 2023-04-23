@@ -2,16 +2,60 @@
 
 #blog-posts::-webkit-scrollbar {
     width: 15px;
-  }
+}
   
-  #blog-posts::-webkit-scrollbar-track {
+#blog-posts::-webkit-scrollbar-track {
     background-color: var(--global-background);
     border-radius: 10px;
-  }
+}
   
-  #blog-posts::-webkit-scrollbar-thumb{
+#blog-posts::-webkit-scrollbar-thumb{
     background-color: var(--box-background);
     border-radius: 10px;
     border: 4px solid transparent;
     background-clip: content-box;
+}
+
+#blog-posts-container {
+    width:100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid black;
+}
+  
+#blog-posts {
+    background-color: var(--global-background);
+    display:block;
+    border: 5px solid blue;
+    resize: none;
+    overflow-y: scroll;
+    height: 100%;
+    width: 100%;
+}
+
+
+
+h1[name="blog-post"] {
+    background-color: var(--box-background);
+    padding: 10px;
+    margin: 10px;
+    border-radius: 20px;
   }
+  
+
+h1[name="blog-post"] {
+    width:90%;
+    margin-left:auto;
+    margin-right:auto;
+    
+    word-break: break-word;
+    line-height: 13px;
+    text-align: left;
+    font-size: 13px;
+    box-shadow: 0 0 5px black;
+  
+    font-weight: bold;
+}

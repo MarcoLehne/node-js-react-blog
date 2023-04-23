@@ -1,16 +1,17 @@
-import React from "react";
-
-function PublishPost({ onPublishPost }){
-
-    const handleClick = () => {
-        onPublishPost();
-    }
-
-    return (
-        <button name="publish-btn" onClick={handleClick}>
-            Publish
-        </button>
-    )
+button[name="publish-btn"] {
+    background-color: var(--box-background);
+    font-weight: bold;
+    font-size: 14px;
+    padding: 10px;
+    display:block;
+    margin: 5px auto;
+    border-radius: 20px;
+    text-align: center;
+    border: 3px solid var(--global-background);
 }
-
-export default PublishPost;
+  
+button[name="publish-btn"]:focus {
+    box-shadow: 0 0 5px black;
+    outline: none;
+    border: 3px solid var(--font-color);
+} 

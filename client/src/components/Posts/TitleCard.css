@@ -1,16 +1,19 @@
-
-// this still needs to calculate 
-// which genitiv is appropriate
-
-function TitleCard() {
-    return (
-        <h1 id="blog-name">I am a placeholder
-            <br/>
-            <span id="blog-author">
-                By Someone
-            </span>
-        </h1>
-    )
+#blog-name {
+  background-color: var(--box-background);
+  padding: 10px;
+  margin: 10px;
+  border-radius: 20px;
+  font-size: 25px;
+  text-align: center;
+  width: 60%;
+  border: 5px solid green;
+  box-shadow: 0 0 5px black;
+  background-color: var(--box-background);
+  padding: 10px;
+  margin: 10px;
+  border-radius: 20px;
 }
 
-export default TitleCard;
+#blog-author {
+  font-size: 20px;
+}
