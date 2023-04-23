@@ -1,5 +1,6 @@
 import React, {forwardRef} from "react";
 import {autoResize} from "../../helpers/helpers"
+import "./WritePost.css";
 
 const WritePost = forwardRef((props, writtenPost) => {
 

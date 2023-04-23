@@ -1,20 +1,15 @@
 import React from "react";
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import store from "../../store/configureStore";
+import { useDispatch } from "react-redux";
 
 import "./SignUpForm.css";
 import { setIsLoggedIn } from "../../reducers/slicers/isLoggedInSlice";
 import { setUserName } from "../../reducers/slicers/userName";
-import "./LoginForm.css";
+import "./SignUpForm.css";
 
 
 function SignUpForm(){
 
     const dispatch = useDispatch();
-
-    const isLoggedIn = useSelector((state) => state.isLoggedIn);
-    const userName = useSelector((state) => state.userName);
 
     const handleSubmit = async (event) => {
         event.preventDefault();

@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import store from "../../store/configureStore";
 import { setIsLoggedIn } from "../../reducers/slicers/isLoggedInSlice";
 import { setUserName } from "../../reducers/slicers/userName";
 import "./LoginForm.css";
@@ -9,9 +8,6 @@ import "./LoginForm.css";
 function LoginForm(){
 
     const dispatch = useDispatch();
-
-    const isLoggedIn = useSelector((state) => state.isLoggedIn);
-    const userName = useSelector((state) => state.userName);
 
     const [loginFailed, setLoginFailed] = useState(false);
 

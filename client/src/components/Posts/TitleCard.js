@@ -1,8 +1,4 @@
-import { useSelector } from "react-redux";
-
-
-// this still needs to calculate 
-// which genitiv is appropriate
+import "./TitleCard.css";
 
 function TitleCard() {
 
@@ -16,12 +12,7 @@ function TitleCard() {
 
 
     return (
-        <h1 id="blog-name">{blogName}
-            {/* <br/>
-            <span id="blog-author">
-                By Someone
-            </span> */}
-        </h1>
+        <h1 id="blog-name">{blogName}</h1>
     )
 }
 

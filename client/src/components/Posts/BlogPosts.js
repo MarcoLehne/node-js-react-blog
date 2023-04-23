@@ -5,6 +5,7 @@ import WritePost from "./WritePost";
 import PublishPost from "./PublishPost";
 import TitleCard from "./TitleCard";
 import { useSelector } from "react-redux";
+import "./BlogPosts.css";
 
 const options = {
     method: 'POST',

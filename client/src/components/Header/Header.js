@@ -4,6 +4,7 @@ import SignUpBtn from "./SignUpBtn";
 import LogoutBtn from "./LogoutBtn";
 import HomeBtn from "./HomeBtn";
 import { useSelector } from "react-redux";
+import "./Header.css";
 
 function Header() {
 

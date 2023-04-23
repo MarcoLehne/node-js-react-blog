@@ -1,3 +1,5 @@
+@import "../../styles/variables.css";
+
 button[name="publish-btn"] {
     background-color: var(--box-background);
     font-weight: bold;

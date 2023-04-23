@@ -1,4 +1,5 @@
 import React from "react";
+import "./PublishPost.css";
 
 function PublishPost({ onPublishPost }){
 

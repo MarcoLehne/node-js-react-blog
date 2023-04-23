@@ -1,3 +1,5 @@
+@import '../../styles/variables.css';
+
 #sign-up-btn{
     margin-left:15px;
     font-size: 18px;

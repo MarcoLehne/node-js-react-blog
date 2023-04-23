@@ -3,6 +3,7 @@ import { store } from "../../store/configureStore";
 import { setIsLoggedIn } from "../../reducers/slicers/isLoggedInSlice";
 import { useSelector } from "react-redux";
 import { setUserName } from "../../reducers/slicers/userName";
+import "./LogoutBtn.css";
 
 function LogoutBtn(){
 

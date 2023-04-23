@@ -1,3 +1,5 @@
+@import "../../styles/variables.css";
+
 textarea[name="write-post-text-enter"]::-webkit-scrollbar {
   width: 5px;
   height: 20%;

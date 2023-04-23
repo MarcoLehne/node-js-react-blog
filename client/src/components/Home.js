@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { useAsync } from "react-use";
 import { useSelector } from "react-redux";
+import "./Home.css";
 
 // this component needs to fetch all the created users 
 // from the json and display them with hyper links

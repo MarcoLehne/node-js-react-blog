@@ -1,4 +1,4 @@
-@import 'variables.css';
+@import '../styles/variables.css';
 
 * {
   padding: 0;
@@ -24,12 +24,4 @@ body {
   justify-content: stretch;
   align-items: center;
   border: 5px solid red;
-}
-
-
-#blog-name, h1[name="blog-post"], textarea[name="write-post-text-enter"] {
-  background-color: var(--box-background);
-  padding: 10px;
-  margin: 10px;
-  border-radius: 20px;
 }

@@ -1,5 +1,7 @@
+@import '../../styles/variables.css';
+
 #login-btn{
     margin-left:15px;
     font-size: 18px;
     text-decoration: none;
-  }
+}
