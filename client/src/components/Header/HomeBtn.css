@@ -1,14 +1,5 @@
-import React from "react";
-
-function HomeBtn(){
-
-    return (
-        <a href="./">
-            <h1 id="home-btn">
-                Home
-            </h1>
-        </a>
-    )
-}
-
-export default HomeBtn;
+#home-btn{
+    margin-left:15px;
+    font-size: 18px;
+    text-decoration: none;
+  }

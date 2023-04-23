@@ -7,8 +7,11 @@ import { useSelector } from "react-redux";
 
 function Header() {
 
-    const isLoggedIn = useSelector(state => state.isLoggedIn);
-    
+
+    // this should cookie verify instead of using a global state.
+    // otherwise after a refresh everything is gone
+    const isLoggedIn = useSelector(state => state.isLoggedIn).value;
+
     return (
         <div id="header-div">
             {isLoggedIn

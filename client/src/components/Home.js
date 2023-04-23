@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import { useAsync } from "react-use";
+import { useSelector } from "react-redux";
 
 // this component needs to fetch all the created users 
 // from the json and display them with hyper links
@@ -7,6 +8,8 @@ import { useAsync } from "react-use";
 // account create option is "empty" for now
 
 function Home(){
+
+    console.log(useSelector(state => state.isLoggedIn).value)
 
     const blogNames = useAsync(async () => {
         const response = await fetch( "/internal/users");

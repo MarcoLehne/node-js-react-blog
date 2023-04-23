@@ -82,7 +82,9 @@ app.post('/internal/login', async (req, res) => {
     const { name, password } = req.body;
     
     // Check if the username and password are valid
-    if (await isValidUser(name, password)) {
+    try { 
+      
+      await isValidUser(name, password)
 
       // If the user is valid, create a token or session ID and set a cookie
       const token = generateCookieValue();
@@ -99,51 +101,28 @@ app.post('/internal/login', async (req, res) => {
 
       // Send a response indicating successful login
       res.status(200).json({ status: 'success', message: 'User logged in successfully.' });
-    } else {
+    } catch(error) {
       // If the user is not valid, send a response indicating unsuccessful login
       res.status(401).json({ status: 'error', message: 'Invalid username or password.' });
     }
   });
 
-// app.post('/internal/login', (req, res) => {
+// Define your logout route
+app.post('/internal/logout', cookieParser(), (req, res) => {
 
+  // delete the cookie from the database if necessary
+  // delete the cookie from the database if necessary
+  // delete the cookie from the database if necessary
+  // delete the cookie from the database if necessary
+  // delete the cookie from the database if necessary
+  // delete the cookie from the database if necessary
+  // delete the cookie from the database if necessary
+  // delete the cookie from the database if necessary
 
-//     // Check if username and password are valid
-//     if (req.body.username === 'user' && req.body.password === 'password') {
-//       // Set the user session
-//       req.session.user = {
-//         username: req.body.username,
-//         loggedIn: true
-//       };
-//       // Set a session cookie
-//       res.cookie('session_id', req.session.id, {
-//         maxAge: 60 * 60 * 1000, // session expires in 1 hour
-//         httpOnly: true, // cookie cannot be accessed by client-side scripts
-//         secure: true, // cookie is only sent over HTTPS
-//         sameSite: 'lax' // cookie can be sent cross-origin for GET requests
-//       });
-//       res.status(200).json({ success: true });
-//     } else {
-//       res.status(401).json({ error: 'Invalid username or password' });
-//     }
-//   });
-  
-
-
-  // Define your logout route
-  app.post('/internal/logout',cookieParser(), (req, res) => {
-
-    // this needs to delete the cookie from the database as well
-
-    // Destroy the session and clear the session cookie
-    req.session.destroy((err) => {
-      if (err) {
-        console.error(err);
-      }
-      res.clearCookie('session_id');
-      res.status(200).json({ success: true });
-    });
-  });
+  // Clear the session cookie
+  res.clearCookie('token', { path: '/'});
+  res.status(200).json({ status: "success" });
+});
 
 app.listen(PORT, () => {
     console.log(`Server listening on ${PORT}`);

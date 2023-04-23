@@ -4,6 +4,7 @@ import CreatePost from "./CreatePost";
 import WritePost from "./WritePost";
 import PublishPost from "./PublishPost";
 import TitleCard from "./TitleCard";
+import { useSelector } from "react-redux";
 
 const options = {
     method: 'POST',
@@ -18,6 +19,10 @@ function BlogPosts(props){
     const [posts, setPosts] = useState([]);
     const [showPosts, setShowPosts] = useState(true);
     const writtenPostRef = useRef();
+
+    
+    const isLoggedIn = useSelector(state => state.isLoggedIn).value;
+    const userName = useSelector(state => state.userName).value;
 
     useAsync(async () => {
         const userName = window.location.href.split("/").slice(-1)[0];
@@ -51,8 +56,8 @@ function BlogPosts(props){
     return (
         <div id="blog-posts-container">
             <TitleCard />
-            {props.isLoggedIn
-                ?showPosts
+            {isLoggedIn
+                ? showPosts
                     ? <CreatePost onCreatePost={createPost}/>
                     : <PublishPost onPublishPost={publishPost}/>
                 : null

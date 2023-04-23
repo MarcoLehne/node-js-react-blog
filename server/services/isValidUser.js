@@ -16,7 +16,7 @@ function isValidUser(username,password) {
                     }
                 } //add some data
 
-                reject("Invalid username or password");
+                reject(new Error("Invalid username or password"));
             }
         });
     });

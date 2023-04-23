@@ -1,20 +1,17 @@
-import React, {forwardRef} from "react";
-import {autoResize} from "../../helpers/helpers"
-
-const WritePost = forwardRef((props, writtenPost) => {
-
-    const textarea = writtenPost.current;    
-    if(textarea) {
-        textarea.addEventListener('input', autoResize);
-    }
-
-    const placeholder = "Enter your text here";
-
-    return(
-        <div id="write-post-div" name="write-post-div">
-            <textarea placeholder={placeholder} onInput={autoResize} name="write-post-text-enter" ref={writtenPost}/>
-        </div>
-    )
-});
-
-export default WritePost;
+textarea[name="write-post-text-enter"]::-webkit-scrollbar {
+    width: 5px;
+    height: 20%;
+  }
+  
+  textarea[name="write-post-text-enter"]::-webkit-scrollbar-track {
+    background-color: var(--box-background);
+    border-radius: 10px;
+  }
+  
+  textarea[name="write-post-text-enter"]::-webkit-scrollbar-thumb{
+    background-color: var(--font-color);
+    border-radius: 15px;
+    border: 1px solid transparent;
+    background-clip: content-box;
+  }
+  

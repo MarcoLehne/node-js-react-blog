@@ -1,14 +1,5 @@
-import React from "react";
-
-function LoginBtn(){
-
-    return (
-        <a href="./SignIn">
-            <h1 id="sign-in-btn">
-                Sign In
-            </h1>
-        </a>
-    )
-}
-
-export default SignInBtn;
+#login-btn{
+    margin-left:15px;
+    font-size: 18px;
+    text-decoration: none;
+  }
