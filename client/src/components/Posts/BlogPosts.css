@@ -23,20 +23,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 5px solid black;
 }
-  
+
 #blog-posts {
     background-color: var(--global-background);
     display:block;
-    border: 5px solid blue;
     resize: none;
     overflow-y: scroll;
     height: 100%;
-    width: 100%;
+    width: 80%;
 }
-
-
 
 h1[name="blog-post"] {
     background-color: var(--box-background);

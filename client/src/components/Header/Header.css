@@ -1,8 +1,9 @@
 @import '../../styles/variables.css';
 
 #header-div {
-    border:5px solid green;
     width:100%;
+    margin: 10px;
+    margin-right: 4vw;
     display:flex;
     justify-content: end;
 }
