@@ -1,17 +1,14 @@
-import React from "react";
-import "./PublishPost.css";
+import React from 'react';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import PublishPost from './PublishPost';
 
-function PublishPost({ onPublishPost }){
-
-    const handleClick = () => {
-        onPublishPost();
-    }
-
-    return (
-        <button name="publish-btn" onClick={handleClick}>
-            Publish
-        </button>
-    )
-}
-
-export default PublishPost;
+describe('PublishPost', () => {
+  it('calls the onPublishPost function when the button is clicked', () => {
+    const mockOnPublishPost = jest.fn();
+    render(<PublishPost onPublishPost={mockOnPublishPost} />);
+    const publishButton = screen.getByRole('button', { name: 'Publish' });
+    userEvent.click(publishButton);
+    expect(mockOnPublishPost).toHaveBeenCalledTimes(1);
+  });
+});

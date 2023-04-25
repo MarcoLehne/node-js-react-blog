@@ -1,17 +1,18 @@
 import React from "react";
-import "./CreatePost.css";
+import { render, fireEvent, screen } from "@testing-library/react";
+import CreatePost from "./CreatePost";
 
-function CreatePost({ onCreatePost }){
+test("renders a CreatePost button", () => {
+  const onCreatePostMock = jest.fn();
+  render(<CreatePost onCreatePost={onCreatePostMock} />);
+  const createButton = screen.getByRole("button", { name: "Create" });
+  expect(createButton).toBeInTheDocument();
+});
 
-    const handleClick = () => {
-        onCreatePost();
-    }
-
-    return (
-        <button name="create-btn" onClick={handleClick}>
-            Create
-        </button>
-    )
-}
-
-export default CreatePost;
+test("calls onCreatePost prop when clicked", () => {
+  const onCreatePostMock = jest.fn();
+  render(<CreatePost onCreatePost={onCreatePostMock} />);
+  const createButton = screen.getByRole("button", { name: "Create" });
+  fireEvent.click(createButton);
+  expect(onCreatePostMock).toHaveBeenCalledTimes(1);
+});
