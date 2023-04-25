@@ -8,9 +8,6 @@ import "./Header.css";
 
 function Header() {
 
-
-    // this should cookie verify instead of using a global state.
-    // otherwise after a refresh everything is gone
     const isLoggedIn = useSelector(state => state.isLoggedIn).value;
 
     return (

@@ -3,41 +3,15 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const bodyParser = require('body-parser');
 
-
 const fs = require('fs');
 const {addPost} = require('./services/addPost');
 const {addUser} = require('./services/addUser');
 const {addCookie} = require('./services/addCookie');
 const {isValidUser} = require('./services/isValidUser');
 const {generateCookieValue} = require('./services/generateCookieValue');
-const session = require('express-session');
 const cookieParser = require('cookie-parser');
 
 app.use(express.json());
-
-// Middleware function to verify the token
-const verifyTokenMiddleware = async (req, res, next) => {
-    const token = req.cookies.token;
-  
-    if (!token) {
-      return res.status(401).json({ status: 'error', message: 'Unauthorized' });
-    }
-  
-    // Verify the token using your token verification logic
-    const isValidToken = await verifyToken(token);
-  
-    if (!isValidToken) {
-      return res.status(401).json({ status: 'error', message: 'Unauthorized' });
-    }
-  
-    next();
-};
-
-app.post("/internal/verifyToken", (req,res) => {
-
-})
-
-
 
 // I want this to throw an error if not requested from within the react app
 // this will be done with post
@@ -67,8 +41,14 @@ app.post("/internal/user/addPost", async (req,res) => {
 })
 
 app.post("/internal/user/addUser",bodyParser.urlencoded({ extended: true }),  async (req,res) => {
+  
+  try {
     await addUser(req.body);
     res.json({status: "success"});
+  } catch(error) {
+    res.status(401).json({ status: 'error', message: 'Invalid username or password.' });
+  }
+  
 })
 
 // this will later serve the transpiled react app to any remaining url
@@ -105,9 +85,8 @@ app.post('/internal/login', async (req, res) => {
       // If the user is not valid, send a response indicating unsuccessful login
       res.status(401).json({ status: 'error', message: 'Invalid username or password.' });
     }
-  });
+});
 
-// Define your logout route
 app.post('/internal/logout', cookieParser(), (req, res) => {
 
   // delete the cookie from the database if necessary

@@ -45,6 +45,7 @@ function BlogPosts(props){
             content: writtenPostRef.current.value,
             date: [0,0,0]
         })
+
         const response = await fetch("/internal/user/addPost", options);
         await response.json();
 

@@ -8,7 +8,6 @@ import "./LoginForm.css";
 function LoginForm(){
 
     const dispatch = useDispatch();
-
     const [loginFailed, setLoginFailed] = useState(false);
 
     const handleSubmit = async (event) => {
@@ -40,7 +39,6 @@ function LoginForm(){
             setLoginFailed(true);
         }
     }
-
 
     return (
         <form method="POST" onSubmit={handleSubmit}>

@@ -9,6 +9,12 @@ function addUser(userObj) {
             } else {
                 obj = JSON.parse(data); //now it an object
 
+                for (let u of obj.table) {
+                    if (u.name === userObj.name) {
+                        reject(new Error("User already exists"));
+                    }
+                }
+
                 obj.table.push({
                     id : obj.table.length + 1, 
                     name: userObj.name,
