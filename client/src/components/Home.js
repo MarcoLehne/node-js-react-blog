@@ -22,8 +22,8 @@ function Home(){
         <div id="home-div">
             {blogNames.loading
                 ? <h1>loading</h1>
-                : blogNames.value.users.map(user => {
-                    return <a href={`/${user.name}`}><h1>{user.name}</h1></a>
+                : blogNames.value.users.map((user,i) => {
+                    return <a key={i} href={`/${user.name}`}><h1>{user.name}</h1></a>
                 })
             }
         </div>
